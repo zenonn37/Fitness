@@ -1,0 +1,7 @@
+export const GET_PROGRAMS = "GET_PROGRAMS";
+export const GET_PROGRAM = "GET_PROGRAM";
+export const ADD_PROGRAMS = "ADD_PROGRAMS";
+export const UPDATE_PROGRAMS = "UPDATE_PROGRAMS";
+export const DELETE_PROGRAMS = "DELETE_PROGRAMS";
+export const ERROR_PROGRAMS = "ERROR_PROGRAMS";
+export const LOADING = "LOADING";
