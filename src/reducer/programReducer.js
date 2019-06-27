@@ -5,7 +5,8 @@ import {
   UPDATE_PROGRAMS,
   DELETE_PROGRAMS,
   ERROR_PROGRAMS,
-  LOADING
+  LOADING,
+  CHECK_COMPLETE
 } from "../types";
 
 export const programReducer = (
@@ -13,7 +14,8 @@ export const programReducer = (
     programs: [],
     program: "",
     errors: null,
-    loading: false
+    loading: false,
+    complete: false
   },
   action
 ) => {
@@ -35,13 +37,14 @@ export const programReducer = (
       return {
         ...state,
         programs: [...state.programs, action.payload],
-        loading: false
+        loading: false,
+        complete: true
       };
 
     case UPDATE_PROGRAMS:
       return {
         ...state,
-        programs: [...state.programs, action.payload],
+        program: action.payload,
         loading: false
       };
     case DELETE_PROGRAMS:
@@ -62,6 +65,12 @@ export const programReducer = (
         ...state,
         loading: true
       };
+    case CHECK_COMPLETE: {
+      return {
+        ...state,
+        complete: false
+      };
+    }
 
     default:
       return state;

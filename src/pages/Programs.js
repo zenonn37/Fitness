@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { getPrograms } from "../actions/programsActions";
+import { getPrograms, deleteProgram } from "../actions/programsActions";
 
 const Programs = () => {
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ const Programs = () => {
   return (
     <div>
       <h1>Program</h1>
+      <Link to="/create">New Program</Link>
 
       <ul>
         {programs.map(program => (
@@ -21,6 +22,9 @@ const Programs = () => {
             <Link to={`/programs/${program.id}`}>
               <h1>{program.name}</h1>
             </Link>
+            <button onClick={() => dispatch(deleteProgram(program.id))}>
+              X
+            </button>
           </li>
         ))}
       </ul>

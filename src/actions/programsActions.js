@@ -5,19 +5,59 @@ import {
   ADD_PROGRAMS,
   UPDATE_PROGRAMS,
   DELETE_PROGRAMS,
-  ERROR_PROGRAMS
+  ERROR_PROGRAMS,
+  CHECK_COMPLETE
 } from "../types";
 
+export const checkComplete = () => {
+  return {
+    type: CHECK_COMPLETE
+  };
+};
+
+export const updateProgram = program => {
+  return async dispatch => {
+    try {
+      const res = await plank.patch(`/programs/${program.id}`, program);
+      dispatch({
+        type: UPDATE_PROGRAMS,
+        payload: res.data.data
+      });
+    } catch (error) {
+      dispatch({
+        type: ERROR_PROGRAMS,
+        payload: error
+      });
+    }
+  };
+};
+
+export const createProgram = program => {
+  return async dispatch => {
+    try {
+      const res = await plank.post("/programs", program);
+      dispatch({
+        type: ADD_PROGRAMS,
+        payload: res.data.data
+      });
+    } catch (error) {
+      dispatch({
+        type: ERROR_PROGRAMS,
+        payload: error
+      });
+    }
+  };
+};
 export const getPrograms = () => {
   return async (dispatch, getData) => {
-    const res = await plank.get("/programs");
-    console.log(res.data.data);
-
-    dispatch({
-      type: GET_PROGRAMS,
-      payload: res.data.data
-    });
     try {
+      const res = await plank.get("/programs");
+      console.log(res.data.data);
+
+      dispatch({
+        type: GET_PROGRAMS,
+        payload: res.data.data
+      });
     } catch (error) {
       dispatch({
         type: ERROR_PROGRAMS,
@@ -29,14 +69,14 @@ export const getPrograms = () => {
 
 export const getProgram = id => {
   return async (dispatch, getData) => {
-    const res = await plank.get(`/programs/${id}`);
-    console.log(res.data.data);
-
-    dispatch({
-      type: GET_PROGRAM,
-      payload: res.data.data
-    });
     try {
+      const res = await plank.get(`/programs/${id}`);
+      console.log(res.data.data);
+
+      dispatch({
+        type: GET_PROGRAM,
+        payload: res.data.data
+      });
     } catch (error) {
       dispatch({
         type: ERROR_PROGRAMS,
@@ -46,6 +86,22 @@ export const getProgram = id => {
   };
 };
 
+export const deleteProgram = id => {
+  return async dispatch => {
+    try {
+      const res = await plank.delete(`/programs/${id}`);
+      dispatch({
+        type: DELETE_PROGRAMS,
+        payload: res.data.data
+      });
+    } catch (error) {
+      dispatch({
+        type: ERROR_PROGRAMS,
+        payload: error
+      });
+    }
+  };
+};
 export const loading = () => {
   return {
     type: "LOADING"

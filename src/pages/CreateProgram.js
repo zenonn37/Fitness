@@ -1,49 +1,47 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useRef, useMemo, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { getProgram, updateProgram } from "../actions/programsActions";
+import { createProgram, checkComplete } from "../actions/programsActions";
 
-const Program = ({ match }) => {
+const CreateProgram = ({ history }) => {
   const dispatch = useDispatch();
-  const { program, loading } = useSelector(state => state.programs);
+  const { loading, programs, complete } = useSelector(state => state.programs);
+
+  if (complete) {
+    console.log("done");
+    history.push("/");
+  } else {
+    console.log("wait");
+  }
+
+  useEffect(() => {
+    dispatch(checkComplete());
+  }, [dispatch]);
 
   const title = useRef(null);
-  const levels = useRef(null);
-  const times = useRef(null);
-  const cal = useRef(null);
+  const level = useRef(null);
+  const time = useRef(null);
+  const calories = useRef(null);
   const desp = useRef(null);
 
-  const onUpdate = e => {
+  const onSubmit = e => {
     e.preventDefault();
 
     const data = {
       name: title.current.value,
-      level: levels.current.value,
+      level: level.current.value,
       description: desp.current.value,
-      time: times.current.value,
-      calories: cal.current.value,
-      id: program.id
+      time: time.current.value,
+      calories: calories.current.value,
+      user_id: 1
     };
-
+    dispatch(createProgram(data));
     console.log(data);
-
-    dispatch(updateProgram(data));
   };
 
-  useEffect(() => {
-    dispatch(getProgram(match.params.id));
-  }, [dispatch, match.params.id]);
-
-  const { name, level, time, calories, description } = program;
   return (
     <div>
-      <Link to="/programs">
-        <h4>Back</h4>
-      </Link>
-      <h1>{name}</h1>
-      <p>{description}</p>
-
-      <form onSubmit={onUpdate}>
+      <h2 className="subtitle">Create Program</h2>
+      <form onSubmit={onSubmit}>
         <div className="field">
           <div className="control">
             <input
@@ -51,7 +49,6 @@ const Program = ({ match }) => {
               ref={title}
               type="text"
               placeholder="Title"
-              defaultValue={name}
             />
           </div>
         </div>
@@ -59,8 +56,8 @@ const Program = ({ match }) => {
           <div className="control">
             <textarea
               className="textarea is-large"
+              placeholder="Description"
               ref={desp}
-              defaultValue={description}
             />
           </div>
         </div>
@@ -68,10 +65,9 @@ const Program = ({ match }) => {
           <div className="control">
             <input
               className="input is-large"
-              ref={cal}
+              ref={calories}
               type="text"
               placeholder="Estimated burned Calories"
-              defaultValue={calories}
             />
           </div>
         </div>
@@ -79,10 +75,9 @@ const Program = ({ match }) => {
           <div className="control">
             <input
               className="input is-large"
-              ref={times}
+              ref={time}
               type="text"
               placeholder="Time"
-              defaultValue={time}
             />
           </div>
         </div>
@@ -90,7 +85,7 @@ const Program = ({ match }) => {
         <div className="field">
           <div className="control">
             <div className="select">
-              <select ref={levels} defaultValue={level}>
+              <select ref={level}>
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>
@@ -108,4 +103,4 @@ const Program = ({ match }) => {
   );
 };
 
-export default Program;
+export default CreateProgram;
