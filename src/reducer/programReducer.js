@@ -6,7 +6,8 @@ import {
   DELETE_PROGRAMS,
   ERROR_PROGRAMS,
   LOADING,
-  CHECK_COMPLETE
+  CHECK_COMPLETE,
+  CURRENT
 } from "../types";
 
 export const programReducer = (
@@ -69,6 +70,22 @@ export const programReducer = (
       return {
         ...state,
         complete: false
+      };
+    }
+
+    case CURRENT: {
+      console.log(action.payload);
+      let id = parseInt(action.payload);
+      console.log(state.programs.find(x => x.id === id));
+      let result = state.programs.find(x => x.id === id);
+      console.log(result);
+
+      let index = state.programs.indexOf(result);
+      console.log(index);
+
+      return {
+        ...state,
+        program: result
       };
     }
 

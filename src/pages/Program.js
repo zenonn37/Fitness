@@ -1,12 +1,17 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { getProgram, updateProgram } from "../actions/programsActions";
+import {
+  getProgram,
+  updateProgram,
+  setCurrent
+} from "../actions/programsActions";
 
 const Program = ({ match }) => {
   const dispatch = useDispatch();
   const { program, loading } = useSelector(state => state.programs);
 
+  //const [name, setName] = useState("");
   const title = useRef(null);
   const levels = useRef(null);
   const times = useRef(null);
@@ -31,8 +36,8 @@ const Program = ({ match }) => {
   };
 
   useEffect(() => {
-    dispatch(getProgram(match.params.id));
-  }, [dispatch, match.params.id]);
+    //dispatch(setCurrent(match.params.id));
+  }, []);
 
   const { name, level, time, calories, description } = program;
   return (

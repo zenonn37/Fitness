@@ -6,3 +6,4 @@ export const DELETE_PROGRAMS = "DELETE_PROGRAMS";
 export const ERROR_PROGRAMS = "ERROR_PROGRAMS";
 export const LOADING = "LOADING";
 export const CHECK_COMPLETE = "CHECK_COMPLETE";
+export const CURRENT = "CURRENT";

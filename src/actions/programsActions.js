@@ -6,7 +6,8 @@ import {
   UPDATE_PROGRAMS,
   DELETE_PROGRAMS,
   ERROR_PROGRAMS,
-  CHECK_COMPLETE
+  CHECK_COMPLETE,
+  CURRENT
 } from "../types";
 
 export const checkComplete = () => {
@@ -64,6 +65,13 @@ export const getPrograms = () => {
         payload: error
       });
     }
+  };
+};
+
+export const setCurrent = id => {
+  return {
+    type: CURRENT,
+    payload: id
   };
 };
 

@@ -1,7 +1,12 @@
 import React, { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { getPrograms, deleteProgram } from "../actions/programsActions";
+import {
+  getPrograms,
+  deleteProgram,
+  setCurrent
+} from "../actions/programsActions";
+import { logicalExpression } from "@babel/types";
 
 const Programs = () => {
   const dispatch = useDispatch();
@@ -11,6 +16,10 @@ const Programs = () => {
     dispatch(getPrograms());
   }, [dispatch]);
 
+  const test = () => {
+    console.log("test");
+  };
+
   return (
     <div>
       <h1>Program</h1>
@@ -19,7 +28,10 @@ const Programs = () => {
       <ul>
         {programs.map(program => (
           <li key={program.id}>
-            <Link to={`/programs/${program.id}`}>
+            <Link
+              to={`/programs/${program.id}`}
+              onClick={() => dispatch(setCurrent(program.id))}
+            >
               <h1>{program.name}</h1>
             </Link>
             <button onClick={() => dispatch(deleteProgram(program.id))}>
