@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import {
   getPrograms,
   deleteProgram,
-  setCurrent
+  setCurrent,
+  testProgam
 } from "../actions/programsActions";
-import { logicalExpression } from "@babel/types";
 
 const Programs = () => {
   const dispatch = useDispatch();

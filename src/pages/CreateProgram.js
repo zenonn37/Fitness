@@ -6,16 +6,16 @@ const CreateProgram = ({ history }) => {
   const dispatch = useDispatch();
   const { loading, programs, complete } = useSelector(state => state.programs);
 
-  if (complete) {
-    console.log("done");
-    history.push("/");
-  } else {
-    console.log("wait");
-  }
+  //   if (complete) {
+  //     console.log("done");
+  //     history.push("/");
+  //   } else {
+  //     console.log("wait");
+  //   }
 
   useEffect(() => {
-    dispatch(checkComplete());
-  }, [dispatch]);
+    console.log();
+  }, [complete]);
 
   const title = useRef(null);
   const level = useRef(null);
@@ -99,6 +99,13 @@ const CreateProgram = ({ history }) => {
           Save
         </button>
       </form>
+
+      <button
+        onClick={() => dispatch(checkComplete(true))}
+        className="button is-large"
+      >
+        Test
+      </button>
     </div>
   );
 };

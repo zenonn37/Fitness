@@ -8,13 +8,14 @@ import store from "./store";
 import "./App.sass";
 import "./style/main.css";
 import { Provider } from "react-redux";
+import history from "./actions/history";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 
 ReactDOM.render(
   <Provider store={store}>
     <div className="container">
-      <Router>
+      <Router history={history}>
         <Switch>
           <Route path="/" exact component={App} />
           <Route path="/create" component={CreateProgram} />

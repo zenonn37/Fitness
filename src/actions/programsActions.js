@@ -1,4 +1,6 @@
 import plank from "../api/plank";
+import history from "./history";
+
 import {
   GET_PROGRAMS,
   GET_PROGRAM,
@@ -10,9 +12,10 @@ import {
   CURRENT
 } from "../types";
 
-export const checkComplete = () => {
+export const checkComplete = com => {
   return {
-    type: CHECK_COMPLETE
+    type: CHECK_COMPLETE,
+    payload: com
   };
 };
 
@@ -33,14 +36,39 @@ export const updateProgram = program => {
   };
 };
 
+export const testProgam = program => {
+  return async dispatch => {
+    return new Promise((resolve, reject) => {
+      plank
+        .post("/programs", program)
+        .then(res => {
+          resolve(res);
+          dispatch({
+            type: ADD_PROGRAMS,
+            payload: res.data.data
+          });
+        })
+        .catch(error => {
+          reject(error);
+          dispatch({
+            type: ERROR_PROGRAMS,
+            payload: error
+          });
+        });
+    });
+  };
+};
+
 export const createProgram = program => {
   return async dispatch => {
     try {
       const res = await plank.post("/programs", program);
+
       dispatch({
         type: ADD_PROGRAMS,
         payload: res.data.data
       });
+      history.push("/programs");
     } catch (error) {
       dispatch({
         type: ERROR_PROGRAMS,
@@ -100,7 +128,7 @@ export const deleteProgram = id => {
       const res = await plank.delete(`/programs/${id}`);
       dispatch({
         type: DELETE_PROGRAMS,
-        payload: res.data.data
+        payload: id
       });
     } catch (error) {
       dispatch({

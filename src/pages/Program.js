@@ -35,9 +35,7 @@ const Program = ({ match }) => {
     dispatch(updateProgram(data));
   };
 
-  useEffect(() => {
-    //dispatch(setCurrent(match.params.id));
-  }, []);
+  useEffect(() => {}, []);
 
   const { name, level, time, calories, description } = program;
   return (

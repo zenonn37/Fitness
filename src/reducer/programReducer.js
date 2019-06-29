@@ -51,7 +51,9 @@ export const programReducer = (
     case DELETE_PROGRAMS:
       return {
         ...state,
-        programs: [...state.programs, action.payload],
+        programs: state.programs.filter(
+          program => program.id !== action.payload
+        ),
         loading: false
       };
 
@@ -69,16 +71,14 @@ export const programReducer = (
     case CHECK_COMPLETE: {
       return {
         ...state,
-        complete: false
+        complete: action.payload
       };
     }
 
     case CURRENT: {
-      console.log(action.payload);
       let id = parseInt(action.payload);
-      console.log(state.programs.find(x => x.id === id));
+
       let result = state.programs.find(x => x.id === id);
-      console.log(result);
 
       let index = state.programs.indexOf(result);
       console.log(index);
