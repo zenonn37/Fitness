@@ -7,3 +7,6 @@ export const ERROR_PROGRAMS = "ERROR_PROGRAMS";
 export const LOADING = "LOADING";
 export const CHECK_COMPLETE = "CHECK_COMPLETE";
 export const CURRENT = "CURRENT";
+export const REGISTER = "REGISTER";
+export const LOGIN = "LOGIN";
+export const AUTH = "AUTH";

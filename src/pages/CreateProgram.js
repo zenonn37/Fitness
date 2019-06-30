@@ -4,18 +4,7 @@ import { createProgram, checkComplete } from "../actions/programsActions";
 
 const CreateProgram = ({ history }) => {
   const dispatch = useDispatch();
-  const { loading, programs, complete } = useSelector(state => state.programs);
-
-  //   if (complete) {
-  //     console.log("done");
-  //     history.push("/");
-  //   } else {
-  //     console.log("wait");
-  //   }
-
-  useEffect(() => {
-    console.log();
-  }, [complete]);
+  const { loading, programs } = useSelector(state => state.programs);
 
   const title = useRef(null);
   const level = useRef(null);
@@ -98,14 +87,13 @@ const CreateProgram = ({ history }) => {
         <button type="submit" className="button is-primary large">
           Save
         </button>
+        <button
+          onClick={() => history.push("/programs")}
+          className="button is-danger large"
+        >
+          Cancel
+        </button>
       </form>
-
-      <button
-        onClick={() => dispatch(checkComplete(true))}
-        className="button is-large"
-      >
-        Test
-      </button>
     </div>
   );
 };

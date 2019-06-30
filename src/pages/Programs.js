@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import {
   getPrograms,
   deleteProgram,
-  setCurrent,
-  testProgam
+  setCurrent
 } from "../actions/programsActions";
 
 const Programs = () => {
@@ -15,10 +14,6 @@ const Programs = () => {
   useEffect(() => {
     dispatch(getPrograms());
   }, [dispatch]);
-
-  const test = () => {
-    console.log("test");
-  };
 
   return (
     <div>

@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 import { programReducer } from "./programReducer";
+import { authReducer } from "./authReducer";
 
 export default combineReducers({
-  programs: programReducer
+  programs: programReducer,
+  auth: authReducer
 });
