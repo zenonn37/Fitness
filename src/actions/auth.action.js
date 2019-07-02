@@ -1,5 +1,6 @@
 import plank from "../api/plank";
-import { REGISTER, LOGIN, AUTH } from "../types";
+import { REGISTER, LOGIN, AUTH, LOGOUT, CLEAR_PROGRAMS } from "../types";
+import { clearPrograms } from "./programsActions";
 import history from "./history";
 
 export const registerAction = register => {
@@ -96,11 +97,18 @@ export const userAction = () => {
 export const logOut = () => {
   return async (dispatch, getData) => {
     try {
+      plank.defaults.headers.common["Authorization"] =
+        "Bearer " + localStorage.getItem("access_token");
       await plank.post("/logout");
 
       dispatch({
-        type: LOGIN
+        type: LOGOUT
       });
+      dispatch({
+        type: CLEAR_PROGRAMS
+      });
+      localStorage.removeItem("access_token");
+      history.push("/login");
     } catch (error) {
       console.log(error);
     }

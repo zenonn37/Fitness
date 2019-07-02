@@ -1,4 +1,4 @@
-import { REGISTER, LOGIN, AUTH } from "../types";
+import { REGISTER, LOGIN, AUTH, LOGOUT } from "../types";
 
 export const authReducer = (
   state = {
@@ -19,9 +19,19 @@ export const authReducer = (
         token: action.payload
       };
     case AUTH:
+      console.log(action.payload);
+
       return {
         ...state,
         user: action.payload
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        user: null,
+        token: null,
+
+        error: null
       };
 
     default:

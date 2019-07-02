@@ -7,7 +7,8 @@ import {
   ERROR_PROGRAMS,
   LOADING,
   CHECK_COMPLETE,
-  CURRENT
+  CURRENT,
+  CLEAR_PROGRAMS
 } from "../types";
 
 export const programReducer = (
@@ -72,6 +73,15 @@ export const programReducer = (
       return {
         ...state,
         complete: action.payload
+      };
+    }
+    case CLEAR_PROGRAMS: {
+      console.log("in reducer");
+
+      return {
+        ...state,
+        programs: [],
+        program: ""
       };
     }
 

@@ -20,8 +20,7 @@ const CreateProgram = ({ history }) => {
       level: level.current.value,
       description: desp.current.value,
       time: time.current.value,
-      calories: calories.current.value,
-      user_id: 1
+      calories: calories.current.value
     };
     dispatch(createProgram(data));
     console.log(data);

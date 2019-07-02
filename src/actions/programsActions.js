@@ -9,8 +9,20 @@ import {
   DELETE_PROGRAMS,
   ERROR_PROGRAMS,
   CHECK_COMPLETE,
-  CURRENT
+  CURRENT,
+  CLEAR_PROGRAMS
 } from "../types";
+
+plank.defaults.headers.common["Authorization"] =
+  "Bearer " + localStorage.getItem("access_token");
+
+export const clearPrograms = () => {
+  console.log("called");
+
+  return {
+    type: CLEAR_PROGRAMS
+  };
+};
 
 export const checkComplete = com => {
   return {

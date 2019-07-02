@@ -13,11 +13,13 @@ import history from "./actions/history";
 import { Router, Route, Switch } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import NavBar from "./components/NavBar";
 
 ReactDOM.render(
   <Provider store={store}>
-    <div className="container">
-      <Router history={history}>
+    <Router history={history}>
+      <NavBar />
+      <div className="container">
         <Switch>
           <Route path="/" exact component={App} />
           <Route path="/register" component={Register} />
@@ -26,8 +28,8 @@ ReactDOM.render(
           <Route path="/programs" exact component={Programs} />
           <Route path="/programs/:id" component={Program} />
         </Switch>
-      </Router>
-    </div>
+      </div>
+    </Router>
   </Provider>,
 
   document.getElementById("root")

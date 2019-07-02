@@ -10,3 +10,5 @@ export const CURRENT = "CURRENT";
 export const REGISTER = "REGISTER";
 export const LOGIN = "LOGIN";
 export const AUTH = "AUTH";
+export const LOGOUT = "LOGOUT";
+export const CLEAR_PROGRAMS = " CLEAR_PROGRAMS";
