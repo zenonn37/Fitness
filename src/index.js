@@ -9,9 +9,11 @@ import "./App.sass";
 import "./style/main.css";
 import { Provider } from "react-redux";
 import history from "./actions/history";
-
+import PrivateRoute from "./routing/PrivateRoute";
 import { Router, Route, Switch } from "react-router-dom";
 import Register from "./pages/Register";
+import Excercises from "./pages/Excercises";
+import Excercise from "./pages/Excercise";
 import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
 
@@ -21,12 +23,14 @@ ReactDOM.render(
       <NavBar />
       <div className="container">
         <Switch>
-          <Route path="/" exact component={App} />
+          <PrivateRoute path="/" exact component={App} />
           <Route path="/register" component={Register} />
           <Route path="/Login" component={Login} />
-          <Route path="/create" component={CreateProgram} />
-          <Route path="/programs" exact component={Programs} />
-          <Route path="/programs/:id" component={Program} />
+          <PrivateRoute path="/create" component={CreateProgram} />
+          <PrivateRoute path="/programs" exact component={Programs} />
+          <PrivateRoute path="/programs/:id" component={Program} />
+          <PrivateRoute path="/excercises" exact component={Excercises} />
+          <PrivateRoute path="/excercises/:id" exact component={Excercise} />
         </Switch>
       </div>
     </Router>
