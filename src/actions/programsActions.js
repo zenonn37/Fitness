@@ -17,8 +17,6 @@ plank.defaults.headers.common["Authorization"] =
   "Bearer " + localStorage.getItem("access_token");
 
 export const clearPrograms = () => {
-  console.log("called");
-
   return {
     type: CLEAR_PROGRAMS
   };
