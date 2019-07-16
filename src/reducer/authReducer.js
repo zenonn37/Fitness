@@ -4,7 +4,7 @@ export const authReducer = (
   state = {
     user: null,
     error: "",
-    token: localStorage.getItem("access_token") || false
+    token: localStorage.getItem("access_token") || null
   },
   action
 ) => {

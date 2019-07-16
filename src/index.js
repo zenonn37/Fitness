@@ -14,23 +14,27 @@ import { Router, Route, Switch } from "react-router-dom";
 import Register from "./pages/Register";
 import Excercises from "./pages/Excercises";
 import Excercise from "./pages/Excercise";
+import CreateExcercise from "./pages/CreateExcercise";
 import Login from "./pages/Login";
-import NavBar from "./components/NavBar";
+
+import GuestLayout from "./layouts/guestLayout";
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <NavBar />
+      <GuestLayout />
       <div className="container">
         <Switch>
-          <PrivateRoute path="/" exact component={App} />
           <Route path="/register" component={Register} />
           <Route path="/Login" component={Login} />
+
+          <PrivateRoute path="/" exact component={App} />
           <PrivateRoute path="/create" component={CreateProgram} />
           <PrivateRoute path="/programs" exact component={Programs} />
           <PrivateRoute path="/programs/:id" component={Program} />
           <PrivateRoute path="/excercises" exact component={Excercises} />
-          <PrivateRoute path="/excercises/:id" exact component={Excercise} />
+          <PrivateRoute path="/excercise/:id" component={Excercise} />
+          <PrivateRoute path="/add" component={CreateExcercise} />
         </Switch>
       </div>
     </Router>

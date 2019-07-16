@@ -2,7 +2,131 @@ h1 {
   font-size: 60px;
 }
 
+h2 {
+  margin-bottom: 1px;
+}
+
+a {
+  text-decoration: none;
+}
+
 .title {
   font-size: 60px;
+}
+
+.auth-box {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth-container {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #fefefe;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+}
+
+.auth-container h2 {
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+.auth-brand {
+  width: 30%;
+  background: #ffffff;
+  padding: 0.5em;
+}
+
+.auth-input {
+  padding: 2em;
+  width: 100%;
+}
+
+.sign {
+  padding-top: 1em;
+  text-align: center;
+}
+
+.sign p {
+  padding-top: 2em;
+}
+
+.ios-box {
+  width: 70%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #fefefe;
+  -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  margin: 20px 0 20px 0;
+}
+
+.ios-box .move-info {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ios-box .move-info .title:not(:last-child),
+.ios-box .move-info .subtitle:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.ios-box .move-info h2 {
+  cursor: pointer;
+}
+
+.ios-box .move-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-flex: 0.2;
+      -ms-flex-positive: 0.2;
+          flex-grow: 0.2;
+  margin-left: 20px;
+}
+
+.ios-box .move-complete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-right: 20px;
 }
 /*# sourceMappingURL=main.css.map */

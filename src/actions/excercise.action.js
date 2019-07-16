@@ -7,7 +7,8 @@ import {
   UPDATE_EXCERCISES,
   SHOW_EXCERCISES,
   DELETE_EXCERCISES,
-  ERRORS
+  ERRORS,
+  SET_EXCERCISE
 } from "../types";
 
 plank.defaults.headers.common["Authorization"] =
@@ -29,15 +30,15 @@ export const getExcercise = () => {
     }
   };
 };
-export const addExcercise = () => {
+export const addExcercise = data => {
   return async dispatch => {
     try {
-      const res = await plank.post("/excercises");
+      const res = await plank.post("/excercises", data);
       dispatch({
         type: ADD_EXCERCISES,
         payload: res.data.data
       });
-      history.push("/");
+      history.push("/excercises");
     } catch (error) {
       dispatch({
         type: ERRORS,
@@ -80,6 +81,13 @@ export const deleteExcercise = id => {
     }
   };
 };
+
+export const excerciseCurrent = id => {
+  return {
+    type: SET_EXCERCISE,
+    payload: id
+  };
+};
 export const showExcercise = id => {
   return async dispatch => {
     try {
@@ -88,7 +96,6 @@ export const showExcercise = id => {
         type: SHOW_EXCERCISES,
         payload: res.data.data
       });
-      history.push("/");
     } catch (error) {
       dispatch({
         type: ERRORS,

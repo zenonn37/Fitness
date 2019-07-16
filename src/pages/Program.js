@@ -37,7 +37,7 @@ const Program = ({ match }) => {
 
   useEffect(() => {}, []);
 
-  const { name, level, time, calories, description } = program;
+  const { name, level, time, calories, description, excercises } = program;
   return (
     <div>
       <Link to="/programs">
@@ -45,6 +45,11 @@ const Program = ({ match }) => {
       </Link>
       <h1>{name}</h1>
       <p>{description}</p>
+      {excercises.map(ex => (
+        <div key={ex.id}>
+          <h1 className="subtitle">{ex.name}</h1>
+        </div>
+      ))}
 
       <form onSubmit={onUpdate}>
         <div className="field">

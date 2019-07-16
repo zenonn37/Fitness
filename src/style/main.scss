@@ -1,9 +1,94 @@
-@import "bulma/bulma.sass";
-
 h1 {
   font-size: 60px;
 }
 
+h2 {
+  margin-bottom: 1px;
+}
+
+a {
+  text-decoration: none;
+}
+
 .title {
   font-size: 60px;
+}
+
+.auth-box {
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.auth-container {
+  width: 70%;
+  display: flex;
+
+  background: #fefefe;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+
+  h2 {
+    text-align: center;
+    padding-bottom: 2em;
+  }
+}
+.auth-brand {
+  width: 30%;
+  background: #ffffff;
+  padding: 0.5em;
+}
+
+.auth-input {
+  padding: 2em;
+  width: 100%;
+}
+
+.sign {
+  padding-top: 1em;
+  text-align: center;
+  p {
+    padding-top: 2em;
+  }
+}
+
+.ios-box {
+  width: 70%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+
+  background: #fefefe;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  margin: 20px 0 20px 0;
+  .move-info {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+    .title:not(:last-child),
+    .subtitle:not(:last-child) {
+      margin-bottom: 0;
+    }
+    h2 {
+      cursor: pointer;
+    }
+  }
+  .move-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-self: center;
+    flex-grow: 0.2;
+    margin-left: 20px;
+  }
+
+  .move-complete {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-right: 20px;
+  }
 }

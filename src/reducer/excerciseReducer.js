@@ -3,7 +3,8 @@ import {
   ADD_EXCERCISES,
   UPDATE_EXCERCISES,
   SHOW_EXCERCISES,
-  DELETE_EXCERCISES
+  DELETE_EXCERCISES,
+  SET_EXCERCISE
 } from "../types";
 
 const init = {
@@ -44,6 +45,19 @@ export const excerciseReducer = (state = init, action) => {
       return {
         ...state,
         excercise: action.payload
+      };
+    }
+
+    case SET_EXCERCISE: {
+      let id = parseInt(action.payload);
+
+      let result = state.excercises.find(x => x.id === id);
+
+      // let index = state.excercises.indexOf(result);
+      // console.log(index);
+      return {
+        ...state,
+        excercise: result
       };
     }
 
