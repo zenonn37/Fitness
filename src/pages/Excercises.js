@@ -15,14 +15,7 @@ const Excercises = ({ history }) => {
   return (
     <div>
       <h1 className="title">Excercise</h1>
-      <div>
-        <button
-          className="button is-primary"
-          onClick={() => history.push("/add")}
-        >
-          Create New Excercise
-        </button>
-      </div>
+      <div />
 
       {excercises.map(ex => (
         <ExcerciseList
@@ -33,6 +26,13 @@ const Excercises = ({ history }) => {
           id={ex.id}
         />
       ))}
+
+      <button
+        className="button is-primary is-rounded"
+        onClick={() => history.push("/add")}
+      >
+        Create New Excercise
+      </button>
     </div>
   );
 };

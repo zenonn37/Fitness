@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 
 export default function ExcerciseList({ name, sets, reps, id }) {
   const dispatch = useDispatch();
+
+  const showData = () => {
+    console.log("pressed");
+  };
+
   return (
     <div className="ios-box">
       <div className="move-logo">
@@ -14,7 +19,7 @@ export default function ExcerciseList({ name, sets, reps, id }) {
       </div>
 
       <div className="move-info">
-        <h2 className="subtitle flex-control">
+        <h2 className="subtitle flex-control" onClick={() => showData()}>
           {name} | {sets}
           <i className="fas fa-1x fa-times" />
           {reps}

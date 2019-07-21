@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import Programs from "./pages/Programs";
 import Program from "./pages/Program";
+import Profile from "./pages/Profile";
 import CreateProgram from "./pages/CreateProgram";
 import store from "./store";
 import "./App.sass";
@@ -16,6 +17,7 @@ import Excercises from "./pages/Excercises";
 import Excercise from "./pages/Excercise";
 import CreateExcercise from "./pages/CreateExcercise";
 import Login from "./pages/Login";
+import SidePanel from "./components/SidePanel";
 
 import GuestLayout from "./layouts/guestLayout";
 
@@ -23,12 +25,13 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <GuestLayout />
+      <SidePanel />
       <div className="container">
         <Switch>
           <Route path="/register" component={Register} />
           <Route path="/Login" component={Login} />
 
-          <PrivateRoute path="/" exact component={App} />
+          <PrivateRoute path="/" exact component={Profile} />
           <PrivateRoute path="/create" component={CreateProgram} />
           <PrivateRoute path="/programs" exact component={Programs} />
           <PrivateRoute path="/programs/:id" component={Program} />
