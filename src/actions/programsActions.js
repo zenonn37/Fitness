@@ -13,8 +13,8 @@ import {
   CLEAR_PROGRAMS
 } from "../types";
 
-plank.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem("access_token");
+const AUTH_TOKEN = localStorage.getItem("access_token");
+plank.defaults.headers.common["Authorization"] = "Bearer " + AUTH_TOKEN;
 
 export const clearPrograms = () => {
   return {

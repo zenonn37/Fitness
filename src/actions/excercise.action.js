@@ -10,9 +10,11 @@ import {
   ERRORS,
   SET_EXCERCISE
 } from "../types";
-
-plank.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem("access_token");
+//axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+const AUTH_TOKEN = localStorage.getItem("access_token");
+plank.defaults.headers.common["Authorization"] = "Bearer " + AUTH_TOKEN;
+  
+//"Bearer " + localStorage.getItem("access_token");
 
 export const getExcercise = () => {
   return async dispatch => {
