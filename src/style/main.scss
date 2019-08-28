@@ -77,9 +77,19 @@ h2 {
 a {
   text-decoration: none;
 }
+li{
+  list-style: none;
+}
 
 .title {
-  font-size: 60px;
+  font-size: 25px;
+  color: rgb(99, 99, 99)
+
+}
+.sub-title {
+  font-size: 14px;
+  color: rgb(122, 122, 122)
+
 }
 
 .aside-container {

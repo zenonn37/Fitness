@@ -1,10 +1,73 @@
 
 .sidebar{
-    background-color: aqua;
+    padding: 2rem;
     flex: 0 0 20em;
+    margin-top:2rem; 
+    
     //transition: margin-left .3s ease-out;
     @include transitions(.3s,ease-out);
+    .active-panel{
+        background-color: $white;
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        min-height:600px;
+        @include transitions(.3s,ease-out);
 
+    .user{
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        padding: 1.5rem 0 0 1.5rem;
+      
+        .avatar{
+            display: flex;     
+    
+             
+                      
+            img{
+                flex:1;
+              max-width: 25%;
+              border-radius: 50%;
+              @include transitions(.3s,ease-out);
+            }
+            .edit-user{
+                flex:1;
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 1rem;
+                @include transitions(.3s,ease-out);
+            }
+           
+        }
+        .person{
+            padding: 0.5rem 0 0 0;
+            flex:1;
+            height: 50px;
+           
+             
+          
+
+        }
+       
+    }
+
+    .menu{
+        padding: 0;
+        li{
+            padding: 0.5rem;
+        }
+        a{
+            padding: 0.5rem;
+            color: gray;
+            @include transitions(.3s,ease-out);
+            &:hover{
+                padding-left: 1.5rem;
+            }
+
+        }
+    }
+
+}
 
 
 }

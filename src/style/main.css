@@ -1,10 +1,90 @@
 .sidebar {
-  background-color: aqua;
+  padding: 2rem;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 20em;
           flex: 0 0 20em;
+  margin-top: 2rem;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+}
+
+.sidebar .active-panel {
+  background-color: #fff;
+  -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  min-height: 600px;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.sidebar .active-panel .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1.5rem 0 0 1.5rem;
+}
+
+.sidebar .active-panel .user .avatar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sidebar .active-panel .user .avatar img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  max-width: 25%;
+  border-radius: 50%;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.sidebar .active-panel .user .avatar .edit-user {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 1rem;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.sidebar .active-panel .user .person {
+  padding: 0.5rem 0 0 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 50px;
+}
+
+.sidebar .active-panel .menu {
+  padding: 0;
+}
+
+.sidebar .active-panel .menu li {
+  padding: 0.5rem;
+}
+
+.sidebar .active-panel .menu a {
+  padding: 0.5rem;
+  color: gray;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.sidebar .active-panel .menu a:hover {
+  padding-left: 1.5rem;
 }
 
 @media only screen and (min-width: 0) and (max-width: 1024px) {
@@ -18,7 +98,7 @@ header {
   display: -ms-flexbox;
   display: flex;
   height: 60px;
-  background-color: cornflowerblue;
+  background-color: #616161;
 }
 
 header .logo {
@@ -141,8 +221,18 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 .title {
-  font-size: 60px;
+  font-size: 25px;
+  color: #636363;
+}
+
+.sub-title {
+  font-size: 14px;
+  color: #7a7a7a;
 }
 
 .aside-container {
