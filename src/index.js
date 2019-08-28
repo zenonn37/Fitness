@@ -25,7 +25,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <GuestLayout />
-      <SidePanel />
+
       <div className="container">
         <Switch>
           <Route path="/register" component={Register} />
