@@ -8,7 +8,34 @@ const NavBar = () => {
   const { token } = useSelector(state => state.auth);
   return (
     <React.Fragment>
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+
+      <header>
+        <div className="logo">
+          <Link to="/">
+
+            <h2> FIT</h2>
+
+
+          </Link>
+
+
+        </div>
+        <nav>
+          <div className="left-content">
+
+            <i className="fas fa-calendar"></i>
+            <h3>Today, 28th August</h3>
+
+          </div>
+
+          <div className="right-content">
+            <i className="fas fa-bell"></i>
+            <i className="fas fa-sign-out-alt" onClick={() => dispatch(logOut())}></i>
+          </div>
+        </nav>
+
+      </header>
+      {/* <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <div className="navbar-item">PLANK</div>
 
@@ -56,12 +83,12 @@ const NavBar = () => {
                 {token ? (
                   ""
                 ) : (
-                  <div className="button is-primary">
-                    <Link to="/login">
-                      <strong>Login</strong>
-                    </Link>
-                  </div>
-                )}
+                    <div className="button is-primary">
+                      <Link to="/login">
+                        <strong>Login</strong>
+                      </Link>
+                    </div>
+                  )}
 
                 {token ? (
                   <div
@@ -71,13 +98,13 @@ const NavBar = () => {
                     Logout
                   </div>
                 ) : (
-                  console.log("guest")
-                )}
+                    console.log("guest")
+                  )}
               </div>
             </div>
           </div>
         </div>
-      </nav>
+      </nav> */}
     </React.Fragment>
   );
 };

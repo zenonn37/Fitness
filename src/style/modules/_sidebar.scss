@@ -1,0 +1,17 @@
+
+.sidebar{
+    background-color: aqua;
+    flex: 0 0 20em;
+    //transition: margin-left .3s ease-out;
+    @include transitions(.3s,ease-out);
+
+
+
+}
+
+
+@media only screen and (min-width:0) and (max-width:1024px){
+ .sidebar{
+     margin-left: -20em;
+ }
+}

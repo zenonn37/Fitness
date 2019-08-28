@@ -1,7 +1,12 @@
 import React from "react";
 
 const SidePanel = () => {
-  return <div className="aside-container" />;
+  return (
+    <div className="sidebar">
+      Bar
+    </div>
+  )
+
 };
 
 export default SidePanel;

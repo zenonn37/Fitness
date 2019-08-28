@@ -1,0 +1,26 @@
+header{
+    display: flex;
+    height:60px;
+    background-color: cornflowerblue;
+    .logo{
+       flex: 0 0 12em;
+       display: flex;
+       align-items: center; 
+       margin-left: 1rem; 
+    }
+    nav{
+        flex:1;
+        display: flex;
+        justify-content: space-between;
+        .left-content{
+            display: flex;
+            align-items: center;
+            color: $white;
+        }
+        .right-content{
+            display: flex;
+            align-items: center;
+            color: $white;
+        }
+    }
+}
