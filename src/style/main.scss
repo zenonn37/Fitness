@@ -56,12 +56,15 @@ min-height: 100vh;
 .content{
   flex:1;
   padding: 1rem;  
+  margin-top:3.2rem;
+  @include transitions(.3s,ease-out);
 }
 
 .container{
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
+    @include transitions(.3s,ease-out);
 }
 
 
@@ -79,16 +82,20 @@ a {
 li{
   list-style: none;
 }
-
+//titles
 .title {
   font-size: 25px;
-  color: rgb(99, 99, 99)
+  color: $primary-text;
 
 }
 .sub-title {
   font-size: 14px;
-  color: rgb(122, 122, 122)
+  color: $secondary-text;
 
+}
+.page-title{
+  font-size:16px;
+  color: aqua;
 }
 
 .aside-container {
@@ -134,6 +141,11 @@ li{
   p {
     padding-top: 2em;
   }
+}
+
+.panel-notification{
+  @include  notifications($accent-color,40px,40px,$white,25px);
+ 
 }
 
 .ios-box {

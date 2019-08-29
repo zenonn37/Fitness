@@ -2,8 +2,23 @@
     box-sizing: $box-model;
 }
 
-
 @mixin transitions($time,$curve) {
     transition: all $time $curve;
 }
+//objects
+
+@mixin notifications($bg,$ht,$wt,$color,$size) {
+    background-color: $bg;
+    height: $ht;
+    width: $wt;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color;
+    font-size: $size;
+    font-weight: bold;
+}
+
+
 

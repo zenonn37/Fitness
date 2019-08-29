@@ -7,6 +7,8 @@ import {
   setCurrent
 } from "../actions/programsActions";
 
+import ProgramList from '../components/ProgramList'
+
 const Programs = () => {
   const dispatch = useDispatch();
   const { programs, loading } = useSelector(state => state.programs);
@@ -17,22 +19,34 @@ const Programs = () => {
 
   return (
     <div>
-      <h1>Program</h1>
-      <Link to="/create">New Program</Link>
+      <h1 className="page-title">Program</h1>
+      {/* <Link to="/create">New Program</Link> */}
+
+
+
 
       <ul>
         {programs.map(program => (
-          <li key={program.id}>
-            <Link
-              to={`/programs/${program.id}`}
-              onClick={() => dispatch(setCurrent(program.id))}
-            >
-              <h1>{program.name}</h1>
-            </Link>
-            <button onClick={() => dispatch(deleteProgram(program.id))}>
-              X
-            </button>
-          </li>
+
+          <ProgramList key={program.id}
+            name={program.name}
+            level={program.level}
+            time={program.time}
+            id={program.id}
+            excercises={program.excercises}
+
+          />
+          // <li key={program.id}>
+          //   <Link
+          //     to={`/programs/${program.id}`}
+          //     onClick={() => dispatch(setCurrent(program.id))}
+          //   >
+          //     <h1>{program.name}</h1>
+          //   </Link>
+          //   <button onClick={() => dispatch(deleteProgram(program.id))}>
+          //     X
+          //   </button>
+          // </li>
         ))}
       </ul>
     </div>

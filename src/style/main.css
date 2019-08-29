@@ -12,7 +12,7 @@
   background-color: #fff;
   -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
+  border-radius: 10px;
   min-height: 600px;
   border-bottom: 1.5rem solid cadetblue;
   -webkit-transition: all 0.3s ease-out;
@@ -225,12 +225,17 @@ img {
       -ms-flex: 1;
           flex: 1;
   padding: 1rem;
+  margin-top: 3.2rem;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .container {
   max-width: 1200px;
   width: 90%;
   margin: 0 auto;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 ul {
@@ -247,12 +252,17 @@ li {
 
 .title {
   font-size: 25px;
-  color: #636363;
+  color: #212121;
 }
 
 .sub-title {
   font-size: 14px;
-  color: #7a7a7a;
+  color: #757575;
+}
+
+.page-title {
+  font-size: 16px;
+  color: aqua;
 }
 
 .aside-container {
@@ -305,6 +315,25 @@ li {
 
 .sign p {
   padding-top: 2em;
+}
+
+.panel-notification {
+  background-color: #4CAF50;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .ios-box {
