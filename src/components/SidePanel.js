@@ -22,7 +22,18 @@ const SidePanel = () => {
 
 
         </div>
+        <div className="hw">
 
+          <div className="height">
+            <h5>HEIGHT</h5>
+            <span>5'0"</span>
+            <span>FT</span>
+          </div>
+          <div className="weight">
+            <h5>WEIGHT</h5>
+            <span>130</span>
+          </div>
+        </div>
         <div className="menu">
 
           <ul>
